@@ -1,27 +1,31 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField, SubmitField, SelectField, DateField
-from wtforms.validators import DataRequired, ValidationError
+from wtforms import StringField, BooleanField, SubmitField, SelectField
+from wtforms.fields.html5 import DateField
+from wtforms.validators import DataRequired 
+
 
 from application.models import Athletes,Results
 
-class AddAthlete():
-    first_name = StringField("First Name")
-    last_name = StringField("Last Name")
+class AddAthlete(FlaskForm):
+    first_name = StringField("First Name", validators = [DataRequired()])
+    last_name = StringField("Last Name", validators = [DataRequired()])
     gender = SelectField("Gender", choices=[
         ("male","Male"),
         ("female","Female")
-    ])
-    dob = DateField("Date of Birth")
-    country = StringField("Country")
+    ], validators = [DataRequired()])
+    dob = DateField("Date of Birth", format='%d/%m/%Y', validators = [DataRequired()])
+    country = StringField("Country", validators = [DataRequired()])
+    submit = SubmitField("Add Athlete")
 
-class AddResult():
-    date = DateField("Date")
-    event = StringField("Event")
+class AddResult(FlaskForm):
+    date = DateField("Date", format='%d/%m/%Y', validators = [DataRequired()])
+    event = StringField("Event", validators = [DataRequired()])
     medal = SelectField("Medal", choices=[
         ("gold","Gold"),
         ("silver","Silver"),
         ("bronze","Bronze"),
         ("none","None")
-    ])
+    ], validators = [DataRequired()])
+    submit = SubmitField("Add Result")
 
     

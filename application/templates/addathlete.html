@@ -1,6 +1,21 @@
 {% extends 'layout.html' %}
 {% block body_content %}
-<body>
-    <p> this is the home page</p>
-</body>
+
+<div class = 'form'>
+<form action='' method="POST">
+    
+    {{ form.first_name.label }} {{ form.first_name }}
+    <br>
+    {{ form.last_name.label }} {{ form.last_name }}
+    <br>
+    {{ form.gender.label }} {{ form.gender }}
+    <br>
+    {{ form.dob.label }} {{ form.dob }}
+    <br>
+    {{ form.country.label }} {{ form.country }}
+    <br>
+    {{ form.submit }} 
+    
+</form>
+</div>
 {% endblock body_content %}
