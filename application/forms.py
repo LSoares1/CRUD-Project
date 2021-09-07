@@ -13,12 +13,12 @@ class AddAthlete(FlaskForm):
         ("male","Male"),
         ("female","Female")
     ], validators = [DataRequired()])
-    dob = DateField("Date of Birth", format='%d/%m/%Y', validators = [DataRequired()])
+    dob = DateField("Date of Birth", format='%Y-%m-%d', validators = [DataRequired()])
     country = StringField("Country", validators = [DataRequired()])
     submit = SubmitField("Add Athlete")
 
 class AddResult(FlaskForm):
-    date = DateField("Date", format='%d/%m/%Y', validators = [DataRequired()])
+    date = DateField("Date", format='%Y-%m-%d', validators = [DataRequired()])
     event = StringField("Event", validators = [DataRequired()])
     medal = SelectField("Medal", choices=[
         ("gold","Gold"),
