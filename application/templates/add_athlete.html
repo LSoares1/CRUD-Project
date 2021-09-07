@@ -1,8 +1,10 @@
 {% extends 'layout.html' %}
-{% block body_content %}
+{% block body %}
 
 <div class = 'form'>
 <form action='' method="POST">
+
+    {{ form.hidden_tag() }}
     
     {{ form.first_name.label }} {{ form.first_name }}
     <br>
@@ -18,4 +20,4 @@
     
 </form>
 </div>
-{% endblock body_content %}
+{% endblock body %}

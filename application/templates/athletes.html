@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h3>header</h3>
+{% for athlete in athletes %}
+
+    <p>
+    Athlete ID: {{ athlete.athlete_ID }}, 
+    First Name: {{ athlete.first_name }}, 
+    Last Name: {{ athlete.last_name }}, 
+    Gender: {{ athlete.gender }}, 
+    Date of Birth: {{ athlete.date_of_birth }}, 
+    Country: {{ athlete.country }}
+    </p>   
+
+{% endfor %}
+{% endblock body %}
