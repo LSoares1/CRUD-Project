@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block body_content %}
+
+<div class = 'form'>
+<form action='' method="POST">
+    
+    {{ form.date.label }} {{ form.date }}
+    <br>
+    {{ form.event.label }} {{ form.event }}
+    <br>
+    {{ form.medal.label }} {{ form.medal }}
+    <br>
+    {{ form.submit }} 
+    
+</form>
+</div>
+{% endblock body_content %}
