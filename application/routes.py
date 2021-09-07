@@ -1,6 +1,6 @@
 from application import app, db
-from application.models import Athletes,Results
-from flask import render_template
+from application.models import Athletes, Results
+from flask import render_template, url_for, redirect, request
 
 @app.route('/')
 def layout():
@@ -10,7 +10,4 @@ def layout():
 def home():
     return render_template('home.html')
 
-@app.route('/athletes')
-
-@app.route('/athletes/add')
 
