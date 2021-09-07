@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h3>header</h3>
+{% for result in results %}
+
+    <p>
+    Result ID: {{ result.result_ID }}, 
+    Date: {{ result.date }},
+    Event: {{ result.event }}, 
+    Medal: {{ result.medal }} 
+    
+    </p>   
+
+{% endfor %}
+{% endblock body %}

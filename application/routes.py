@@ -51,6 +51,6 @@ def athletes():
 
 @app.route('/results')
 def results():
-    resultsData = results.query.all()
+    resultsData = Results.query.all()
     return render_template('results.html', results=resultsData)
     
