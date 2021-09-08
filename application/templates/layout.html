@@ -1,5 +1,6 @@
 <html>
 <h1> Welcome to my app </h1>
+<a href="{{ url_for('athletes') }}">View athletes</a> | <a href="{{ url_for('results') }}">View results</a> | <a href="{{ url_for('add_athlete') }}">Add an athlete</a> | <a href="{{ url_for('add_result') }}">Add a result</a> |
 {% block body %}
 {% endblock body %}
 </html>

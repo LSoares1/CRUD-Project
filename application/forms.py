@@ -16,6 +16,7 @@ class AddAthlete(FlaskForm):
     submit = SubmitField("Add Athlete")
 
 class AddResult(FlaskForm):
+    
     date = DateField("Date", format='%Y-%m-%d', validators = [DataRequired()])
     event = StringField("Event", validators = [DataRequired()])
     medal = SelectField("Medal", choices=[
@@ -24,17 +25,19 @@ class AddResult(FlaskForm):
         ("bronze","Bronze"),
         ("none","None")
     ], validators = [DataRequired()])
+    athleteList = SelectField("Athlete",choices=[], validators = [DataRequired()])
+
     submit = SubmitField("Add Result")
 
 class UpdateAthlete(FlaskForm):
-    first_name = StringField("First Name", validators = [DataRequired()])
-    last_name = StringField("Last Name", validators = [DataRequired()])
+    first_name = StringField("First Name")
+    last_name = StringField("Last Name")
     gender = SelectField("Gender", choices=[
         ("male","Male"),
         ("female","Female")
-    ], validators = [DataRequired()])
-    dob = DateField("Date of Birth", format='%Y-%m-%d', validators = [DataRequired()])
-    country = StringField("Country", validators = [DataRequired()])
+    ])
+    dob = DateField("Date of Birth", format='%Y-%m-%d')
+    country = StringField("Country")
     submit = SubmitField("Update Athlete")
 
 class UpdateResult(FlaskForm):
@@ -46,4 +49,6 @@ class UpdateResult(FlaskForm):
         ("bronze","Bronze"),
         ("none","None")
     ], validators = [DataRequired()])
+    
+        
     submit = SubmitField("Update Result")    

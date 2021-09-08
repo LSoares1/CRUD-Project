@@ -12,6 +12,7 @@
     Date of Birth: {{ athlete.date_of_birth }}, 
     Country: {{ athlete.country }}
     </p>   
+    <a href="{{ url_for('update_athlete', aid=athlete.athlete_ID) }}">Update athlete </a> | <a href="{{ url_for('delete_athlete', aid=athlete.athlete_ID) }}">Remove athlete</a> |
 
 {% endfor %}
 {% endblock body %}
