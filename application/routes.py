@@ -32,12 +32,15 @@ def add_athlete():
 @app.route('/add_result', methods=['GET', 'POST'])
 def add_result():
     form = AddResult()
+    currentAthletes = Athletes.query.all()
+    for athlete in currentAthletes:
+        form.athleteList.choices.append((athlete.athlete_ID, f"{athlete.first_name} {athlete.last_name}"))
     if request.method == 'POST' and form.validate_on_submit():
         result_data = Results(
             date = form.date.data,
             event = form.event.data,
             medal = form.medal.data,
-            fk_athlete_ID = form.athlete.data
+            fk_athlete_ID = form.athleteList.data
             )
         db.session.add(result_data)
         db.session.commit()
@@ -85,24 +88,24 @@ def update_athlete(aid):
         athlete.date_of_birth = date_of_birth
         athlete.country = country
         db.session.commit()
+        return redirect(url_for('athletes'))
     
     return render_template('update_athlete.html',form=form)
 
-@app.route('/update_result/<int:aid>', methods=['GET','POST'])
-def update_result(aid):
-    form = UpdateResuly()
+@app.route('/update_result/<int:rid>', methods=['GET','POST'])
+def update_result(rid):
+    form = UpdateResult()
     if request.method == 'POST':
-        first_name = form.first_name.data
-        last_name = form.last_name.data
-        gender = form.gender.data
-        date_of_birth = form.dob.data
-        country = form.country.data
-        result = Results.query.get(aid)
-        result.first_name = first_name
-        result.last_name = last_name
-        result.gender = gender
-        result.date_of_birth = date_of_birth
-        result.country = country
+        
+        date = form.date.data
+        event = form.event.data
+        medal = form.medal.data
+        result = Results.query.get(rid)
+        result.date = date
+        result.event = event
+        result.medal = medal
         db.session.commit()
+        return redirect(url_for('results'))
+        
     
     return render_template('update_result.html',form=form)
