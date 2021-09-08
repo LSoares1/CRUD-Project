@@ -26,8 +26,6 @@ class AddResult(FlaskForm):
         ("bronze","Bronze"),
         ("none","None")
     ], validators = [DataRequired()])
-    
-        
     submit = SubmitField("Add Result")
 
     
