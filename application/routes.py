@@ -1,6 +1,6 @@
 from application import app, db
 from application.models import Athletes, Results
-from application.forms import AddAthlete, AddResult
+from application.forms import AddAthlete, AddResult, UpdateAthlete, UpdateResult
 from flask import render_template, url_for, redirect, request
 
 @app.route('/')
@@ -68,3 +68,41 @@ def delete_result(rid):
     db.session.delete(result_to_delete)
     db.session.commit()
     return redirect(url_for('results'))
+
+@app.route('/update_athlete/<int:aid>', methods=['GET','POST'])
+def update_athlete(aid):
+    form = UpdateAthlete()
+    if request.method == 'POST':
+        first_name = form.first_name.data
+        last_name = form.last_name.data
+        gender = form.gender.data
+        date_of_birth = form.dob.data
+        country = form.country.data
+        athlete = Athletes.query.get(aid)
+        athlete.first_name = first_name
+        athlete.last_name = last_name
+        athlete.gender = gender
+        athlete.date_of_birth = date_of_birth
+        athlete.country = country
+        db.session.commit()
+    
+    return render_template('update_athlete.html',form=form)
+
+@app.route('/update_result/<int:aid>', methods=['GET','POST'])
+def update_result(aid):
+    form = UpdateResuly()
+    if request.method == 'POST':
+        first_name = form.first_name.data
+        last_name = form.last_name.data
+        gender = form.gender.data
+        date_of_birth = form.dob.data
+        country = form.country.data
+        result = Results.query.get(aid)
+        result.first_name = first_name
+        result.last_name = last_name
+        result.gender = gender
+        result.date_of_birth = date_of_birth
+        result.country = country
+        db.session.commit()
+    
+    return render_template('update_result.html',form=form)
