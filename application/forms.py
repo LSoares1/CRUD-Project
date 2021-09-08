@@ -2,8 +2,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, SubmitField, SelectField
 from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired 
-
-
 from application.models import Athletes,Results
 
 class AddAthlete(FlaskForm):
@@ -17,6 +15,8 @@ class AddAthlete(FlaskForm):
     country = StringField("Country", validators = [DataRequired()])
     submit = SubmitField("Add Athlete")
 
+
+
 class AddResult(FlaskForm):
     date = DateField("Date", format='%Y-%m-%d', validators = [DataRequired()])
     event = StringField("Event", validators = [DataRequired()])
@@ -26,6 +26,8 @@ class AddResult(FlaskForm):
         ("bronze","Bronze"),
         ("none","None")
     ], validators = [DataRequired()])
+    
+        
     submit = SubmitField("Add Result")
 
     

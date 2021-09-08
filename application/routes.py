@@ -37,6 +37,7 @@ def add_result():
             date = form.date.data,
             event = form.event.data,
             medal = form.medal.data,
+            fk_athlete_ID = form.athlete.data
             )
         db.session.add(result_data)
         db.session.commit()
@@ -54,3 +55,16 @@ def results():
     resultsData = Results.query.all()
     return render_template('results.html', results=resultsData)
     
+@app.route('/delete_athlete/<int:aid>')
+def delete_athlete(aid):
+    athlete_to_delete = Athletes.query.get(aid)
+    db.session.delete(athlete_to_delete)
+    db.session.commit()
+    return redirect(url_for('athletes'))
+
+@app.route('/delete_result/<int:rid>')
+def delete_result(rid):
+    result_to_delete = Results.query.get(rid)
+    db.session.delete(result_to_delete)
+    db.session.commit()
+    return redirect(url_for('results'))
