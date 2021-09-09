@@ -1,0 +1,11 @@
+Flask
+Flask-SQLAlchemy
+Jinja2
+SQLAlchemy
+pymysql
+flask_wtf
+wtforms
+pytest
+pytest-cov
+flask-testing
+Werkzeug

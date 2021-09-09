@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h2>Current Athletes</h2>
+{% for athlete in athletes %}
+
+    <p>
+    Athlete ID: {{ athlete.athlete_ID }}, 
+    First Name: {{ athlete.first_name }}, 
+    Last Name: {{ athlete.last_name }}, 
+    Gender: {{ athlete.gender }}, 
+    Age: {{ athlete.age }}, 
+    Country: {{ athlete.country }}
+    </p>   
+    <a href="{{ url_for('update_athlete', aid=athlete.athlete_ID) }}">Update athlete </a> | <a href="{{ url_for('delete_athlete', aid=athlete.athlete_ID) }}">Remove athlete</a> |
+
+{% endfor %}
+{% endblock body %}
