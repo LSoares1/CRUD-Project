@@ -4,12 +4,9 @@ from application.forms import AddAthlete, AddResult, UpdateAthlete, UpdateResult
 from flask import render_template, url_for, redirect, request
 
 @app.route('/')
-def layout():
-    return render_template('layout.html')
-
-@app.route('/home')
 def home():
     return render_template('home.html')
+
 
 
 @app.route('/add_athlete', methods=['GET', 'POST'])
