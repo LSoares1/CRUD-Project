@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField, SubmitField, SelectField
+from wtforms import StringField, BooleanField, SubmitField, SelectField, IntegerField
 from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired 
 from application.models import Athletes,Results
@@ -11,13 +11,13 @@ class AddAthlete(FlaskForm):
         ("male","Male"),
         ("female","Female")
     ], validators = [DataRequired()])
-    dob = DateField("Date of Birth", format='%Y-%m-%d', validators = [DataRequired()])
+    age = IntegerField("Age", validators = [DataRequired()])
     country = StringField("Country", validators = [DataRequired()])
     submit = SubmitField("Add Athlete")
 
 class AddResult(FlaskForm):
     
-    date = DateField("Date", format='%Y-%m-%d', validators = [DataRequired()])
+    year = IntegerField("Year", validators = [DataRequired()])
     event = StringField("Event", validators = [DataRequired()])
     medal = SelectField("Medal", choices=[
         ("gold","Gold"),

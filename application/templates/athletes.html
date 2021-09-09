@@ -9,7 +9,7 @@
     First Name: {{ athlete.first_name }}, 
     Last Name: {{ athlete.last_name }}, 
     Gender: {{ athlete.gender }}, 
-    Date of Birth: {{ athlete.date_of_birth }}, 
+    Age: {{ athlete.age }}, 
     Country: {{ athlete.country }}
     </p>   
     <a href="{{ url_for('update_athlete', aid=athlete.athlete_ID) }}">Update athlete </a> | <a href="{{ url_for('delete_athlete', aid=athlete.athlete_ID) }}">Remove athlete</a> |
