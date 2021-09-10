@@ -6,7 +6,7 @@ from os import getenv
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///data.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:rootroot@project-database.cnucpvtmhpb3.eu-west-1.rds.amazonaws.com:3306/project_database"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = getenv('SECRET_KEY')
 
