@@ -25,13 +25,16 @@ class TestBase(TestCase):
         db.session.remove()
         db.drop_all()
 
-class TestView(TestBase):       
+class TestView(TestBase):  
+    def test_view_home(self):
+        response = self.client.get(url_for('home'))
+        self.assertEqual(response.status_code, 200)
 
     def test_view_athlete(self):
         response = self.client.get(url_for('athletes'))
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'John', response.data)
-
+        
     def test_view_result(self):
         response = self.client.get(url_for('results'))
         self.assertEqual(response.status_code, 200)
@@ -77,7 +80,6 @@ class TestUpdateResult(TestBase):
         )
         self.assertIn(b"Silver", response.data)
         self.assertEqual(response.status_code, 200)
-        
 
 class TestDeleteAthlete(TestBase):
     def test_delete_athlete(self):
@@ -85,7 +87,7 @@ class TestDeleteAthlete(TestBase):
             url_for("delete_athlete", aid=1),
             follow_redirects=True
             )
-        self.assertNotIn(b"John", response.data)    
+        self.assertNotIn(b"John", response.data)
 
 class TestDeleteResult(TestBase):
     def test_delete_result(self):
@@ -93,5 +95,7 @@ class TestDeleteResult(TestBase):
             url_for("delete_result", rid=1),
             follow_redirects=True
             )
-        self.assertNotIn(b"Gold", response.data) 
+        self.assertNotIn(b'2012', response.data)
+        
+        
            

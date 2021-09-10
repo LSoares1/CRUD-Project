@@ -55,14 +55,14 @@ def results():
     resultsData = Results.query.all()
     return render_template('results.html', results=resultsData)
     
-@app.route('/delete_athlete/<int:aid>')
+@app.route('/delete_athlete/<int:aid>',methods=['GET', 'POST'])
 def delete_athlete(aid):
     athlete_to_delete = Athletes.query.get(aid)
     db.session.delete(athlete_to_delete)
     db.session.commit()
     return redirect(url_for('athletes'))
 
-@app.route('/delete_result/<int:rid>')
+@app.route('/delete_result/<int:rid>',methods=['GET', 'POST'])
 def delete_result(rid):
     result_to_delete = Results.query.get(rid)
     db.session.delete(result_to_delete)
