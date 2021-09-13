@@ -105,4 +105,4 @@ def update_result(rid):
         return redirect(url_for('results'))
         
     
-    return render_template('update_result.html',form=form)
+    return render_template('update_result.html',form=form)  
