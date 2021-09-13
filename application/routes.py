@@ -99,7 +99,7 @@ def update_result(rid):
         medal = form.medal.data
         result = Results.query.get(rid)
         result.year = year
-        result.event = event
+        result.event = event  
         result.medal = medal
         db.session.commit()
         return redirect(url_for('results'))
