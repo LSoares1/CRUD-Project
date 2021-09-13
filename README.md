@@ -57,15 +57,19 @@ When the app is first launched the user is shown the home page. From the home pa
 ![Home](https://user-images.githubusercontent.com/88770768/133036228-4a763414-0b25-4fc6-87f5-02727eb11811.JPG)
 
 On the add athletes page the user is presented with a form where athlete information can be entered
+
 ![Add athlete](https://user-images.githubusercontent.com/88770768/133036852-758e1b54-d53f-4a92-abbe-9ba3c3153395.JPG)
 
 On the add results page the user is presented with a form where results can be entered with a dropdown menu to assign the result to a specific athlete within the database
+
 ![Add Result](https://user-images.githubusercontent.com/88770768/133036863-3b0ee9e8-a07c-49da-8cc9-856668a44822.JPG)
 
 From the view athletes page the user can choose to update or remove the athlete from the database
+
 ![View athlete](https://user-images.githubusercontent.com/88770768/133036882-f96e60c5-d2a4-40ff-8630-07be92193924.JPG)
 
 From the view results page the user can choose to update or remove results from the database
+
 ![View result](https://user-images.githubusercontent.com/88770768/133036896-d02e4d56-04fe-4ef3-a56d-e91a46047702.JPG)
 
 
